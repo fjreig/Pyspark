@@ -20,14 +20,5 @@ spark = iceberg_builder.getOrCreate()
 
 # Read data from the Iceberg table
 df = spark.read.format("iceberg").load("s3a://monitorizacion/iceberg_data/tablas/prueba1")
-
-# Show the dataframe schema and some sample data
-print("**************************")
-print("This the Dataframe schema ")
-print("**************************")
 df.printSchema()
-
-print("**************************")
-print("******Dataframe Data******")
-print("**************************")
 df.show()
