@@ -32,6 +32,10 @@ docker compose up -d redpanda-0 console
 docker compose up -d ksqldb-server ksqldb-cli
 ```
 
+```
+docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
+```
+
 ### Instalar pyspark 3.5.1 en uno de los contenedores
 
 ```
