@@ -18,11 +18,8 @@ iceberg_builder = SparkSession.builder \
 # Build the SparkSession for Iceberg
 spark = iceberg_builder.getOrCreate()
 
-# Iceberg table location in Minio
-iceberg_table_location = f"s3a://monitorizacion/iceberg_data/tablas/prueba1"
-
 # Read data from the Iceberg table
-df = spark.read.format("iceberg").load(f"{iceberg_table_location}")
+df = spark.read.format("iceberg").load("s3a://monitorizacion/iceberg_data/tablas/prueba1")
 
 # Show the dataframe schema and some sample data
 print("**************************")
