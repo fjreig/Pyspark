@@ -75,3 +75,5 @@ docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
 ## 4. Grafana
 
 ###
+
+![Architecture](Imagenes/Grafana1.png)
