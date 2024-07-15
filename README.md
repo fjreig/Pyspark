@@ -8,6 +8,11 @@
 docker compose up -d spark-master spark-worker
 ```
 
+
+```
+docker exec -it spark-master python3 /opt/spark-apps/mongo.py
+```
+
 ### kafka
 
 ```
