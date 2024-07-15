@@ -12,7 +12,7 @@
 
 ## 1.Arrancar servicios
 
-### PySpark Cluster
+### 1.1 PySpark Cluster
 
 ```
 docker compose up -d spark-master spark-worker
@@ -24,22 +24,28 @@ docker compose up -d spark-master spark-worker
 docker exec -it spark-master pip3 install pyspark==3.5.1 
 ```
 
-### Iceberg
+### 1.2 Iceberg
 
 ```
 docker compose up -d minio
 ```
 
-### kafka
+### 1.3 kafka
 
 ```
 docker compose up -d redpanda-0 console
 ```
 
-### Ksqldb
+### 1.4 Ksqldb
 
 ```
 docker compose up -d ksqldb-server ksqldb-cli
+```
+
+### 1.5Jupyter Notebook
+
+```
+docker compose up -d jupyter
 ```
 
 ## 2. Querys Spark
