@@ -60,7 +60,7 @@ docker exec -it spark-master python3 /opt/spark-apps/src/Write_Iceberg.py.py
 docker exec -it spark-master python3 /opt/spark-apps/src/Read_Iceberg.py.py
 ```
 
-### 3. Query kafka
+### 2.3 Query kafka
 
 ```
 docker exec -it spark-master python3 /opt/spark-apps/src/kafka.py
