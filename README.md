@@ -71,3 +71,7 @@ docker exec -it spark-master python3 /opt/spark-apps/src/kafka.py
 ```
 docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
 ```
+
+## 4. Grafana
+
+###
