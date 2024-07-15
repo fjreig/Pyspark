@@ -40,7 +40,7 @@ docker compose up -d ksqldb-server ksqldb-cli
 docker exec -it spark-master python3 /opt/spark-apps/src/mongo.py
 ```
 
-#### 2. Query PostgreSQL
+## 2. Query PostgreSQL
 
 ```
 docker cp jars/postgresql-42.7.3.jar spark-master:/opt/bitnami/spark/jars
