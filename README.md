@@ -30,6 +30,18 @@ docker cp jars/postgresql-42.7.3.jar spark-master:/opt/bitnami/spark/jars
 docker exec -it spark-master python3 /opt/spark-apps/src/Postgres.py
 ```
 
+#### 3. Query Iceberg
+
+```
+docker exec -it spark-master python3 /opt/spark-apps/src/Iceberg.py
+```
+
+#### 3. Query kafka
+
+```
+docker exec -it spark-master python3 /opt/spark-apps/src/kafka.py
+```
+
 ### Iceberg
 
 ```
