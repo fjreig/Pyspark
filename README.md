@@ -82,6 +82,6 @@ Añadimos una BBDD tipo Postgres
 
 ![Architecture](Imagenes/Grafana2.png)
 
-Configuramos
+Configuramos SSL disable
 
 ![Architecture](Imagenes/Grafana3.png)
