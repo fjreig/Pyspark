@@ -1,27 +1,34 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType
-from pyspark.sql.functions import concat, concat_ws, to_timestamp
 import os
-
-## Create the SparkSession builder
 spark = SparkSession.builder \
     .appName("Postgres") \
+    .master("spark://spark-master:7077") \
+    .config("spark.driver.memory", "3g") \
     .config("spark.jars", "/opt/bitnami/spark/jars/postgresql-42.7.3.jar") \
     .getOrCreate()
 
-## Postgres Config
-properties = {
-    "user": os.environ['user_postgres'],
-    "password": os.environ['password_postgres'],
-    "driver": "org.postgresql.Driver"
-}
+def main():
+    #print("SCALA VERSION: ", spark.sparkContext._gateway.jvm.scala.util.Properties.versionString())
+    url_read = os.environ['url_postgres'] + "/Monitorizacion"
+    
+    query = """SELECT Fecha, Cuadro as Inversor,
+        i1 as Is1, i2 as Is2, i3 as Is3, i4 as Is4, i5 as Is5, i6 as Is6,
+        i7 as Is7, i8 as Is8, I9 as Is9, I10 as Is10, I11 as Is11, I12 as Is12,
+        i13 as Is13, i14 as Is14, I15 as Is15, I16 as Is16, I17 as Is17, I18 as Is18
+        FROM public.fv_pavasal_cheste_strings
+        where extract(year from fecha) = 2024
+        order by Fecha, Cuadro"""
+    
+    df = spark.read \
+        .format("jdbc") \
+        .option("url", url_read) \
+        .option("user", os.environ['user_postgres']) \
+        .option("password", os.environ['password_postgres']) \
+        .option("query", query) \
+        .load()
+    
+    df = df.withColumn("Fecha",to_timestamp("Fecha"))
+    df.show()
 
-url_write = os.environ['url_postgres'] + "/Monitorizacion"
-table_name_write1 = "public.prueba1"
-
-df1 = spark.read.parquet('/opt/spark-apps/data/tabla1.parquet')
-
-df1 = df1.withColumn("fecha",to_timestamp("fecha"))
-
-## Guardar en Postgres
-df1.write.jdbc(url_write, table_name_write1, mode="overwrite", properties=properties)
+if __name__ == "__main__":
+    main()
