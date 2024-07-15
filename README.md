@@ -42,10 +42,16 @@ docker compose up -d redpanda-0 console
 docker compose up -d ksqldb-server ksqldb-cli
 ```
 
-### 1.5Jupyter Notebook
+### 1.5 Jupyter Notebook
 
 ```
 docker compose up -d jupyter
+```
+
+### 1.6 Grafana
+
+```
+docker compose up -d grafana
 ```
 
 ## 2. Querys Spark
