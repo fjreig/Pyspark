@@ -34,13 +34,13 @@ docker compose up -d ksqldb-server ksqldb-cli
 
 ## 2. Querys Spark
 
-### 1. Query Mongo
+### 2.1 Query Mongo
 
 ```
 docker exec -it spark-master python3 /opt/spark-apps/src/mongo.py
 ```
 
-### 2. Query PostgreSQL
+### 2.2 Query PostgreSQL
 
 ```
 docker cp jars/postgresql-42.7.3.jar spark-master:/opt/bitnami/spark/jars
@@ -50,7 +50,7 @@ docker cp jars/postgresql-42.7.3.jar spark-master:/opt/bitnami/spark/jars
 docker exec -it spark-master python3 /opt/spark-apps/src/Postgres.py
 ```
 
-### 3. Query Iceberg
+### 2.3 Query Iceberg
 
 ```
 docker exec -it spark-master python3 /opt/spark-apps/src/Write_Iceberg.py.py
