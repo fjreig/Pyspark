@@ -126,6 +126,12 @@ services:
     entrypoint: /bin/sh
     tty: true
 
+  grafana:
+    container_name: grafana
+    image: grafana/grafana-oss
+    ports:
+      - 3000:3000
+      
 volumes:
   minio_data:
   redpanda-0: null
