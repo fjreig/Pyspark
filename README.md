@@ -88,4 +88,6 @@ Configuramos SSL disable
 
 ### 4.2 Nuevo Panel
 
+hay que eliminar el limite
+
 ![Architecture](Imagenes/Grafana4.png)
