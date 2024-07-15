@@ -1,8 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType
-from pyspark.sql.functions import concat,concat_ws,to_timestamp
-from pyspark.sql import functions as F
-from datetime import datetime, timedelta
+from pyspark.sql.functions import concat, concat_ws, to_timestamp
 import os
 
 ## Create the SparkSession builder
