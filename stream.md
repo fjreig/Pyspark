@@ -29,3 +29,15 @@ CREATE STREAM fv (
     partitions=1
 );
 ```
+
+
+### 2. Crear tabla
+
+```
+CREATE TABLE tabla1 AS
+  SELECT Inversor,
+        round(avg(Is1), 1) as Is1
+  FROM fv
+  GROUP BY Inversor
+  EMIT CHANGES;
+```
