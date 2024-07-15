@@ -13,6 +13,13 @@ docker compose up -d spark-master spark-worker
 docker exec -it spark-master python3 /opt/spark-apps/mongo.py
 ```
 
+### Iceberg
+
+```
+docker compose up -d minio
+```
+
+
 ### kafka
 
 ```
