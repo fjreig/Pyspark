@@ -85,3 +85,7 @@ Añadimos una BBDD tipo Postgres
 Configuramos SSL disable
 
 ![Architecture](Imagenes/Grafana3.png)
+
+### 4.2 Nuevo Panel
+
+![Architecture](Imagenes/Grafana4.png)
