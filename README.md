@@ -14,6 +14,26 @@ docker compose up -d spark-master spark-worker
 docker exec -it spark-master pip3 install pyspark==3.5.1 
 ```
 
+### Iceberg
+
+```
+docker compose up -d minio
+```
+
+### kafka
+
+```
+docker compose up -d redpanda-0 console
+```
+
+### Ksqldb
+
+```
+docker compose up -d ksqldb-server ksqldb-cli
+```
+
+### 2. Querys Spark
+
 #### 1. Query Mongo
 
 ```
@@ -46,24 +66,7 @@ docker exec -it spark-master python3 /opt/spark-apps/src/Read_Iceberg.py.py
 docker exec -it spark-master python3 /opt/spark-apps/src/kafka.py
 ```
 
-### Iceberg
-
-```
-docker compose up -d minio
-```
-
-
-### kafka
-
-```
-docker compose up -d redpanda-0 console
-```
-
-### Ksqldb
-
-```
-docker compose up -d ksqldb-server ksqldb-cli
-```
+## 3. Streaming
 
 ```
 docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
