@@ -4,7 +4,7 @@
 
 | Servicio | Descripcion | Puerto  |
 | ------------- |:-------------:| -----:|
-| redpanda-0 | kafka | localhost:8989 |
+| redpanda-0 | kafka | [link text itself]: localhost:8989 |
 | spark-master | spark | localhost:8080 |
 | jupyter | jupyter-notebook | localhost:8888 |
 | ksqldb-server | ksqldb |  |
