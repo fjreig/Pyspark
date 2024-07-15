@@ -18,10 +18,14 @@
 docker compose up -d spark-master spark-worker
 ```
 
-### Instalar pyspark 3.5.1 en uno de los contenedores
+#### 1.1.1 Configurar Spark
 
 ```
 docker exec -it spark-master pip3 install pyspark==3.5.1 
+```
+
+```
+docker cp jars/postgresql-42.7.3.jar spark-master:/opt/bitnami/spark/jars
 ```
 
 ### 1.2 Iceberg
@@ -63,10 +67,6 @@ docker exec -it spark-master python3 /opt/spark-apps/src/mongo.py
 ```
 
 ### 2.2 Query PostgreSQL
-
-```
-docker cp jars/postgresql-42.7.3.jar spark-master:/opt/bitnami/spark/jars
-```
 
 ```
 docker exec -it spark-master python3 /opt/spark-apps/src/Postgres.py
