@@ -4,9 +4,10 @@
 
 | Servicio | Descripcion | Puerto  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| redpanda-0 | kafka | localhost:8989 |
+| spark-master | spark | localhost:8080 |
+| jupyter | jupyter-notebook | localhost:8888 |
+| ksqldb-server | ksqldb |  |
 
 ## 1.Arrancar servicios
 
