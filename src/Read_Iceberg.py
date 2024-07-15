@@ -1,5 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType
+import os
 
 # Create the SparkSession builder for Iceberg with Minio configuration
 iceberg_builder = SparkSession.builder \
