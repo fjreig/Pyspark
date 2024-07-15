@@ -1,3 +1,7 @@
+
+### 1. Crear stream
+
+```
 CREATE STREAM fv (
     Fecha varchar,
     Inversor int,
@@ -24,3 +28,4 @@ CREATE STREAM fv (
     value_format='json', 
     partitions=1
 );
+```
