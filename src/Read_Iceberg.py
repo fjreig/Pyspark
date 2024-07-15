@@ -1,8 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType
 
-minio_bucket = "monitorizacion"
-
 # Create the SparkSession builder for Iceberg with Minio configuration
 iceberg_builder = SparkSession.builder \
     .appName("iceberg-concurrent-write-isolation-test") \
@@ -18,21 +16,21 @@ iceberg_builder = SparkSession.builder \
     .enableHiveSupport()
 
 # Build the SparkSession for Iceberg
-iceberg_spark = iceberg_builder.getOrCreate()
+spark = iceberg_builder.getOrCreate()
 
 # Iceberg table location in Minio
-iceberg_table_location = f"s3a://{minio_bucket}/iceberg_data/tabla1"
+iceberg_table_location = f"s3a://monitorizacion/iceberg_data/tablas/prueba1"
 
 # Read data from the Iceberg table
-iceberg_df = iceberg_spark.read.format("iceberg").load(f"{iceberg_table_location}")
+df = spark.read.format("iceberg").load(f"{iceberg_table_location}")
 
 # Show the dataframe schema and some sample data
 print("**************************")
 print("This the Dataframe schema ")
 print("**************************")
-iceberg_df.printSchema()
+df.printSchema()
 
 print("**************************")
 print("******Dataframe Data******")
 print("**************************")
-iceberg_df.show()
+df.show()
