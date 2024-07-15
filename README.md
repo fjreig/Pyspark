@@ -74,6 +74,14 @@ docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
 
 ## 4. Grafana
 
-###
+### 4.1 New Data Source
 
 ![Architecture](Imagenes/Grafana1.png)
+
+Añadimos una BBDD tipo Postgres
+
+![Architecture](Imagenes/Grafana2.png)
+
+Configuramos
+
+![Architecture](Imagenes/Grafana3.png)
