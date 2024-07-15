@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType
 
-minio_bucket = "my-first-bucket"
+minio_bucket = "monitorizacion"
 
 # Create the SparkSession builder for Iceberg with Minio configuration
 iceberg_builder = SparkSession.builder \
@@ -24,7 +24,7 @@ iceberg_spark = iceberg_builder.getOrCreate()
 iceberg_table_location = f"s3a://{minio_bucket}/iceberg_data/tabla1"
 
 # Read data from the Iceberg table
-iceberg_df = iceberg_spark.read.format("iceberg").load(f"{iceberg_table_location}/iceberg_table_name")
+iceberg_df = iceberg_spark.read.format("iceberg").load(f"{iceberg_table_location}")
 
 # Show the dataframe schema and some sample data
 print("**************************")
