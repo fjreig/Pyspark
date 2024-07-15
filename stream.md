@@ -4,7 +4,7 @@
 ```
 CREATE STREAM fv (
     Fecha varchar,
-    Inversor int,
+    Inversor varchar,
     EA DOUBLE,
     Is1 DOUBLE,
     Is2 DOUBLE,
@@ -23,9 +23,9 @@ CREATE STREAM fv (
     )
   WITH (
     kafka_topic='tabla1',
-    timestamp = 'Fecha',
-    timestamp_format = 'yyyy-MM-dd HH:mm:ss',
-    value_format='json', 
+    value_format='json',
+    timestamp='Fecha',
+    timestamp_format= 'yyyy-MM-dd''T''HH:mm:ss.SSSz',
     partitions=1
 );
 ```
