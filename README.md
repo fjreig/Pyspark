@@ -6,6 +6,7 @@
 | ------------- |:-------------:| :-----:|
 | redpanda-0 | kafka | [kafka console](http://localhost:8989) |
 | spark-master | spark | [spark cluster](http://localhost:8989) |
+| Minio | S3 | [minio](http://localhost:9091) |
 | jupyter | jupyter-notebook | [jupyter-notebook](http://localhost:8989) |
 | grafana | grafana | [grafana](http://localhost:3000) |
 | ksqldb-server | ksqldb |  |
