@@ -8,9 +8,26 @@
 docker compose up -d spark-master spark-worker
 ```
 
+### Instalar pyspark 3.5.1 en uno de los contenedores
 
 ```
-docker exec -it spark-master python3 /opt/spark-apps/mongo.py
+docker exec -it spark-master pip3 install pyspark==3.5.1 
+```
+
+#### 1. Query Mongo
+
+```
+docker exec -it spark-master python3 /opt/spark-apps/src/mongo.py
+```
+
+#### 2. Query PostgreSQL
+
+```
+docker cp jars/postgresql-42.7.3.jar spark-master:/opt/bitnami/spark/jars
+```
+
+```
+docker exec -it spark-master python3 /opt/spark-apps/src/Postgres.py
 ```
 
 ### Iceberg
@@ -35,10 +52,3 @@ docker compose up -d ksqldb-server ksqldb-cli
 ```
 docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
 ```
-
-### Instalar pyspark 3.5.1 en uno de los contenedores
-
-```
-docker exec -it spark-master pip3 install pyspark==3.5.1 
-```
-
