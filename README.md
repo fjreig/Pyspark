@@ -2,11 +2,11 @@
 
 ## 0. Servicios
 
-| Servicio | Descripcion | Puerto  |
+| Servicio | Descripcion | GUI |
 | ------------- |:-------------:| -----:|
-| redpanda-0 | kafka | [link text itself](http://localhost:8989) |
-| spark-master | spark | localhost:8080 |
-| jupyter | jupyter-notebook | localhost:8888 |
+| redpanda-0 | kafka | [kafka console](http://localhost:8989) |
+| spark-master | spark | [spark cluster](http://localhost:8989) |
+| jupyter | jupyter-notebook | [jupyter-notebook](http://localhost:8989) |
 | ksqldb-server | ksqldb |  |
 
 ## 1.Arrancar servicios
