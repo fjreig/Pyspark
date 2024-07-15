@@ -9,9 +9,9 @@ iceberg_builder = SparkSession.builder \
     .config("spark.sql.catalog.spark_catalog", "org.apache.iceberg.spark.SparkCatalog") \
     .config("spark.sql.catalog.spark_catalog.type", "hadoop") \
     .config("spark.sql.catalog.spark_catalog.warehouse", f"s3a://{minio_bucket}/iceberg_data/") \
-    .config("spark.hadoop.fs.s3a.access.key", "minioadmin") \
-    .config("spark.hadoop.fs.s3a.secret.key", "minioadmin") \
-    .config("spark.hadoop.fs.s3a.endpoint", "http://minio:9000") \
+    .config("spark.hadoop.fs.s3a.access.key", os.environ['minio_access_key']) \
+    .config("spark.hadoop.fs.s3a.secret.key", os.environ['minio_secret_key']) \
+    .config("spark.hadoop.fs.s3a.endpoint", os.environ['minio_url']) \
     .config("spark.hadoop.fs.s3a.path.style.access", "true") \
     .enableHiveSupport()
 
