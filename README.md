@@ -98,6 +98,7 @@ Configuramos SSL disable
 
 ### 4.2 Nuevo Panel
 
-hay que eliminar el limite
+> [!WARNING]
+> Hay que eliminar el limite de filas y ordenar siempre por fecha
 
 ![Architecture](Imagenes/Grafana4.png)
