@@ -95,7 +95,7 @@ docker exec -it spark-master python3 /opt/spark-apps/src/kafka.py
 docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
 ```
 
-[guia streaming](https://github.com/user/repo/blob/branch/other_file.md)
+[guia streaming](https://github.com/fjreig/Pyspark/blob/main/stream.md)
 
 ## 4. Grafana
 
