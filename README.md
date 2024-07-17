@@ -10,6 +10,7 @@
 | jupyter | jupyter-notebook | [jupyter-notebook](http://localhost:8989) |
 | grafana | grafana | [grafana](http://localhost:3000) |
 | ksqldb-server | ksqldb |  |
+| PostgreSQL | PostgreSQL |  |
 
 ## 1.Arrancar servicios
 
@@ -57,6 +58,12 @@ docker compose up -d jupyter
 
 ```
 docker compose up -d grafana
+```
+
+### 1.7 Postgres
+
+```
+docker compose up -d postgres
 ```
 
 ## 2. Querys Spark
