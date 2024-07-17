@@ -136,15 +136,14 @@ services:
       - .env
 
   postgres:
-    image: postgres:14-alpine
+    container_name: postgres
+    image: postgres
+    restart: always
+    shm_size: 128mb
     ports:
       - 5432:5432
-    volumes:
-      - ~/apps/postgres:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=pavener
-      - POSTGRES_USER=pavener
-      - POSTGRES_DB=Monitorizacion
+      POSTGRES_PASSWORD: postgres
       
 volumes:
   minio_data:
