@@ -15,8 +15,8 @@ def create_spark_session() -> SparkSession:
             "spark.jars.packages",
             "org.postgresql:postgresql:42.7.2,org.mongodb.spark:mongo-spark-connector_2.12:10.3.0",
         ) \
-        .config("spark.mongodb.read.connection.uri", mongo_url) \
-        .config("spark.mongodb.write.connection.uri", mongo_url) \
+        .config("spark.mongodb.read.connection.uri", os.environ['mongo_url']) \
+        .config("spark.mongodb.write.connection.uri", os.environ['mongo_url']) \
         .getOrCreate()
     )
     logging.info("Spark session created successfully")
@@ -40,11 +40,11 @@ def Obtener_DF_nuevos(spark_session, tabla):
 
 def Guardar(df, nombre_tabla):
     properties = {
-        "user": "",
-        "password": "",
+        "user": os.environ['user_postgres'],
+        "password": os.environ['password_postgres'],
         "driver": "org.postgresql.Driver"
     }
-    url_write = "jdbc:postgresql://"
+    url_write = os.environ['url_postgres']
     table_name_write1 = "public." + nombre_tabla
     df.write.jdbc(url_write, table_name_write1, mode="overwrite", properties=properties)
 
