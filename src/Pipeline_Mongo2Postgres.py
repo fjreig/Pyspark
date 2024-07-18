@@ -4,9 +4,7 @@ from pyspark.sql.functions import *
 import logging
 import os
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s:%(funcName)s:%(levelname)s:%(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(funcName)s:%(levelname)s:%(message)s")
 
 def create_spark_session() -> SparkSession:
     spark = (
