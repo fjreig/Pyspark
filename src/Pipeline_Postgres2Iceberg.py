@@ -19,7 +19,7 @@ def create_spark_session() -> SparkSession:
         .config("spark.sql.catalog.spark_catalog.warehouse", os.environ['minio_bucket']) \
         .config("spark.hadoop.fs.s3a.access.key", os.environ['minio_access_key']) \
         .config("spark.hadoop.fs.s3a.secret.key", os.environ['minio_secret_key']) \
-        .config("spark.hadoop.fs.s3a.endpoint", "http://minio:9000") \
+        .config("spark.hadoop.fs.s3a.endpoint", os.environ['minio_url']) \
         .config("spark.hadoop.fs.s3a.path.style.access", "true") \
         .getOrCreate()
     )
