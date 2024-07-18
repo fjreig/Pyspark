@@ -10,7 +10,7 @@ logging.basicConfig(
 
 def create_spark_session() -> SparkSession:
     spark = (
-        SparkSession.builder.appName("Pipeline PostgreSQL to Kafka")
+        SparkSession.builder.appName("Pipeline Mongo to PostgreSQL")
         .config(
             "spark.jars.packages",
             "org.postgresql:postgresql:42.7.2,org.mongodb.spark:mongo-spark-connector_2.12:10.3.0",
