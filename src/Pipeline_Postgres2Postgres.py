@@ -20,7 +20,7 @@ def create_spark_session() -> SparkSession:
     logging.info("Spark session created successfully")
     return (spark)
 
-def create_initial_dataframe(spark_session):
+def Obtener_df(spark_session):
     try:
         query = """SELECT * FROM public.fv_apv_emi """
         df = spark_session.read \
@@ -36,7 +36,7 @@ def create_initial_dataframe(spark_session):
         raise
     return (df)
 
-def create_final_dataframe(df):
+def Guardar_df(df):
     df = df.select(to_json(struct("Fecha")).alias("key"), to_json(struct("Fecha","radiacion","temp_amb","temp_panel")).alias("value"))
     df.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)") \
         .write \
@@ -48,9 +48,9 @@ def create_final_dataframe(df):
 
 def main():
     spark = create_spark_session()
-    df = create_initial_dataframe(spark)
+    df = Obtener_df(spark)
     df.show()
-    df_final = create_final_dataframe(df)
+    df_final = Guardar_df(df)
     df_final.show()
 
 if __name__ == "__main__":
