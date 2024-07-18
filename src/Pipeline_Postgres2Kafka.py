@@ -36,13 +36,13 @@ def Obtener_df(spark_session):
         raise
     return (df)
 
-def Guardar_df(df):
+def Guardar_df(df, topic):
     df = df.select(to_json(struct("Fecha")).alias("key"), to_json(struct("Fecha","radiacion","temp_amb","temp_panel")).alias("value"))
     df.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)") \
         .write \
         .format("kafka") \
         .option("kafka.bootstrap.servers", os.environ['kafka_broker']) \
-        .option("topic", "emi") \
+        .option("topic", topic) \
         .save()
     return (df)
 
@@ -50,7 +50,7 @@ def main():
     spark = create_spark_session()
     df = Obtener_df(spark)
     df.show()
-    df_final = Guardar_df(df)
+    df_final = Guardar_df(df,  "emi")
     df_final.show()
 
 if __name__ == "__main__":
