@@ -38,11 +38,11 @@ def Obtener_df(spark_session, tabla):
 
 def Guardar_df(df, nombre_tabla):
     properties = {
-        "user": "postgres",
-        "password": "postgres",
+        "user":  os.environ['user_postgres_local'],
+        "password":  os.environ['password_postgres_local'],
         "driver": "org.postgresql.Driver"
     }
-    url_write = "jdbc:postgresql://postgres:5432/Monitorizacion"
+    url_write = os.environ['url_postgres_local'] + "/Monitorizacion"
     table_name_write1 = "public." + nombre_tabla
     df.write.jdbc(url_write, table_name_write1, mode="overwrite", properties=properties)
 
