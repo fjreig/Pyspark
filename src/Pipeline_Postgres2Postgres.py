@@ -4,13 +4,11 @@ from pyspark.sql.functions import *
 import logging
 import os
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s:%(funcName)s:%(levelname)s:%(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(funcName)s:%(levelname)s:%(message)s")
 
 def create_spark_session() -> SparkSession:
     spark = (
-        SparkSession.builder.appName("Pipeline PostgreSQL to Kafka")
+        SparkSession.builder.appName("Pipeline PostgreSQL to PostgreSQL")
         .config(
             "spark.jars.packages",
             "org.postgresql:postgresql:42.7.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1",
