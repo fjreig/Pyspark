@@ -22,7 +22,7 @@ def create_spark_session() -> SparkSession:
     logging.info("Spark session created successfully")
     return (spark)
 
-def Obtener_DF(spark_session, tabla):
+def Obtener_df(spark_session, tabla):
     try:
         df = spark_session.read \
             .format("mongodb") \
@@ -38,7 +38,7 @@ def Obtener_DF(spark_session, tabla):
         raise
     return (df)
 
-def Guardar(df, nombre_tabla):
+def Guardar_df(df, nombre_tabla):
     properties = {
         "user": os.environ['user_postgres'],
         "password": os.environ['password_postgres'],
@@ -50,9 +50,9 @@ def Guardar(df, nombre_tabla):
 
 def main():
     spark = create_spark_session()
-    df = Obtener_DF(spark, "OMIE")
+    df = Obtener_df(spark, "OMIE")
     df.show()
-    Guardar(df, "omie")
+    Guardar_df(df, "omie")
 
 if __name__ == "__main__":
     main()
