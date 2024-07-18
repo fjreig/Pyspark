@@ -22,7 +22,7 @@ def create_spark_session() -> SparkSession:
     logging.info("Spark session created successfully")
     return (spark)
 
-def Obtener_DF_nuevos(spark_session, tabla):
+def Obtener_DF(spark_session, tabla):
     try:
         df = spark_session.read \
             .format("mongodb") \
@@ -50,7 +50,7 @@ def Guardar(df, nombre_tabla):
 
 def main():
     spark = create_spark_session()
-    df = Obtener_DF_nuevos(spark, "OMIE")
+    df = Obtener_DF(spark, "OMIE")
     df.show()
     Guardar(df, "omie")
 
