@@ -71,29 +71,35 @@ docker compose up -d postgres
 ### 2.1 Query Mongo
 
 ```
-docker exec -it spark-master python3 /opt/spark-apps/src/mongo.py
+docker exec -it spark-master python3 /opt/spark-apps/mongo.py
 ```
 
 ### 2.2 Query PostgreSQL
 
 ```
-docker exec -it spark-master python3 /opt/spark-apps/src/Postgres.py
+docker exec -it spark-master python3 /opt/spark-apps/Postgres.py
 ```
 
 ### 2.3 Query Iceberg
 
 ```
-docker exec -it spark-master python3 /opt/spark-apps/src/Write_Iceberg.py.py
+docker exec -it spark-master python3 /opt/spark-apps/Write_Iceberg.py.py
 ```
 
 ```
-docker exec -it spark-master python3 /opt/spark-apps/src/Read_Iceberg.py.py
+docker exec -it spark-master python3 /opt/spark-apps/Read_Iceberg.py.py
 ```
 
-### 2.3 Query kafka
+### 2.4 Query kafka
 
 ```
-docker exec -it spark-master python3 /opt/spark-apps/src/kafka.py
+docker exec -it spark-master python3 /opt/spark-apps/kafka.py
+```
+
+### 2.5 Query CockroachDB
+
+```
+docker exec -it spark-master python3 /opt/spark-apps/CockroachDB.py
 ```
 
 ## 3. Streaming
