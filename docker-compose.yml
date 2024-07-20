@@ -135,6 +135,21 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: postgres
+
+  nessie:
+    image: projectnessie/nessie:latest
+    container_name: nessie
+    ports:
+      - 19120:19120
+
+  dremio:
+    platform: linux/x86_64
+    image: dremio/dremio-oss:latest
+    container_name: dremio
+    ports:
+      - 9047:9047
+      - 31010:31010
+      - 32010:32010
       
 volumes:
   minio_data:
