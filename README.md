@@ -11,6 +11,8 @@
 | grafana | grafana | [grafana](http://localhost:3000) |
 | ksqldb-server | ksqldb |  |
 | PostgreSQL | PostgreSQL |  |
+| Nessie | Nessie | [nessie](http://localhost:19120) |
+| Dremio | Apache Dremio | [dremio](http://localhost:9047) |
 
 ## 1.Arrancar servicios
 
@@ -64,6 +66,12 @@ docker compose up -d grafana
 
 ```
 docker compose up -d postgres
+```
+
+### 1.8 Dremio & Nessie
+
+```
+docker compose up -d dremio nessie
 ```
 
 ## 2. Querys Spark
