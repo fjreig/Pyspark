@@ -138,3 +138,22 @@ Configuramos SSL disable
 > Hay que eliminar el limite de filas y ordenar siempre por fecha
 
 ![Architecture](Imagenes/Grafana4.png)
+
+
+## 5. Dremio
+
+### 5.1 Configurar Catalogo Nessie
+General settings tab
+* Source Name: nessie
+* Nessie Endpoint URL: http://nessie:19120/api/v2
+* Auth Type: None
+
+Storage settings tab
+* AWS Root Path: warehouse
+* AWS Access Key: admin
+* AWS Secret Key: password
+* Uncheck “Encrypt Connection” Box (since we aren’t using SSL)
+* Connection Properties
+**  Key: fs.s3a.path.style.access | Value: true
+**  Key: fs.s3a.endpoint | Value: minio:9000
+**  Key: dremio.s3.compat | Value: true
