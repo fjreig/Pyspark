@@ -139,6 +139,11 @@ services:
   nessie:
     image: projectnessie/nessie:latest
     container_name: nessie
+    environment:
+      NESSIE_VERSION_STORE_TYPE: JDBC
+      QUARKUS_DATASOURCE_JDBC_URL: "jdbc:postgresql://postgres:5432/nessie"
+      quarkus.datasource.username: "postgres"
+      quarkus.datasource.password: "postgres"
     ports:
       - 19120:19120
 
