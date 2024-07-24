@@ -104,19 +104,16 @@ services:
     container_name: ksqldb-server
     ports:
       - "8088:8088"
-    environment:
-      KSQL_LISTENERS: http://0.0.0.0:8088
-      KSQL_BOOTSTRAP_SERVERS: http://redpanda-0:9092
-      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
-      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
+    env_file:
+      - .env
 
   ksqldb-cli:
     image: confluentinc/ksqldb-cli:0.29.0
     container_name: ksqldb-cli
-    depends_on:
-      - ksqldb-server
     entrypoint: /bin/sh
     tty: true
+    depends_on:
+      - ksqldb-server
 
   grafana:
     container_name: grafana
@@ -133,8 +130,8 @@ services:
     shm_size: 128mb
     ports:
       - 5432:5432
-    environment:
-      POSTGRES_PASSWORD: postgres
+    env_file:
+      - .env
 
   nessie:
     image: projectnessie/nessie:latest
