@@ -19,7 +19,7 @@ def create_spark_session() -> SparkSession:
         .config('spark.sql.catalog.nessie.ref', 'main')
         .config('spark.sql.catalog.nessie.authentication.type', 'NONE')
         .config('spark.sql.catalog.nessie.catalog-impl', 'org.apache.iceberg.nessie.NessieCatalog')
-        .config('spark.sql.catalog.nessie.s3.endpoint', os.environ["minio_url"])
+        .config('spark.sql.catalog.nessie.s3.endpoint', os.environ["minio_url"]) #Si no funciona, indicar la IP del contenedor minio
         .config('spark.sql.catalog.nessie.warehouse', os.environ["minio_bucket"])
         .config('spark.sql.catalog.nessie.io-impl', 'org.apache.iceberg.aws.s3.S3FileIO')
         .config('spark.hadoop.fs.s3a.access.key', os.environ["minio_access_key"])
