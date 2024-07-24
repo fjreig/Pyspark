@@ -154,6 +154,9 @@ Storage settings tab
 * AWS Secret Key: password
 * Uncheck “Encrypt Connection” Box (since we aren’t using SSL)
 * Connection Properties
-**  Key: fs.s3a.path.style.access | Value: true
-**  Key: fs.s3a.endpoint | Value: minio:9000
-**  Key: dremio.s3.compat | Value: true
+
+| Key | Value |
+| ------------- |:-------------:|
+| fs.s3a.path.style.access | true |
+| fs.s3a.endpoint | minio:9000 |
+| dremio.s3.compat | true |
